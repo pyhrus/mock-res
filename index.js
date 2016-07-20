@@ -52,7 +52,7 @@ MockServerResponse.prototype.writeHead = function(statusCode, reason, headers) {
 };
 
 MockServerResponse.prototype._getString = function() {
-	return Buffer.concat(this._readableState.buffer).toString();
+	return Buffer.concat([this._readableState.buffer.head.data]).toString();
 };
 
 MockServerResponse.prototype._getJSON = function() {
